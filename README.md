@@ -1,6 +1,9 @@
 # About Coneato V2.0
 Coneato v2.0 is an exciting twist on the classic TicTacToe game, featuring strategic stacking mechanics with colorful cones. Players compete to create a line of three cones while managing their inventory and strategically placing cones on the grid.
 
+[Test the game here](https://coneatov2.web.app/)
+
+
 # Game Rules
 Two Teams:
 Team Blue (A) and Team Red (B) compete against each other.
@@ -41,14 +44,17 @@ Make sure you have the following installed on your machine:
 
 Node.js (v14 or higher recommended)
 npm or yarn
+\n
 2) Clone the Repository
 `git clone <repository-url>`
 cd advanced-tictactoe
+\n
 3) Install Dependencies
 Install the necessary packages using npm or yarn:
 `npm install`
 # or
 `yarn install`
+\n
 4) Run the Development Server
 Start the React development server:
 
