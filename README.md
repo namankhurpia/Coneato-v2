@@ -1,46 +1,69 @@
-# Getting Started with Create React App
+# About Coneato V2.0
+Coneato v2.0 is an exciting twist on the classic TicTacToe game, featuring strategic stacking mechanics with colorful cones. Players compete to create a line of three cones while managing their inventory and strategically placing cones on the grid.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Game Rules
+Two Teams:
+Team Blue (A) and Team Red (B) compete against each other.
+Each team starts with 4 cones of sizes 1 to 4 in their inventory.
 
-## Available Scripts
+# Cone Placement:
 
-In the project directory, you can run:
+A cone can only be placed on:
+An empty cell.
+A cone from the opponent’s team, if it’s smaller than the cone being placed.
+You cannot place a cone on top of your own team’s cone.
+Inventory Management:
 
-### `npm start`
+After placing the 4th cone, the team’s oldest top cone disappears and returns to the inventory.
+If you cover an opponent’s cone, the opponent’s cone reappears in their inventory.
+No Phantom Cones:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Ensure that no “phantom” cone remains hidden under the stack. Only the top cone matters for gameplay.
+Win Condition:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+The first team to get 3 in a row (horizontal, vertical, or diagonal) of their top cones wins the game.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Website Layout
+Mobile-Friendly:
 
-### `npm run build`
+The game is optimized for mobile devices, with no scrolling required.
+The grid and inventories adjust to fit the screen perfectly.
+Inventory Positioning:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Team Blue’s (A) inventory is displayed above the grid.
+Team Red’s (B) inventory is displayed below the grid.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# How to Run the Code
+1) Prerequisites
+Make sure you have the following installed on your machine:
 
-### `npm run eject`
+Node.js (v14 or higher recommended)
+npm or yarn
+2) Clone the Repository
+`git clone <repository-url>`
+cd advanced-tictactoe
+3) Install Dependencies
+Install the necessary packages using npm or yarn:
+`npm install`
+# or
+`yarn install`
+4) Run the Development Server
+Start the React development server:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+`npm start`
+# or
+`yarn start`
+The game will be available at http://localhost:3000 in your browser.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+# Contributing
+We welcome contributions!
+Feel free to open issues or submit pull requests for improvements, new features, or bug fixes.
 
-## Learn More
+# Credits
+Created by Naman Khurpia.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Have fun stacking and strategizing! 🎮✨
