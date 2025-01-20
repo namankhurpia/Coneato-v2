@@ -1,38 +1,190 @@
-.App {
-  text-align: center;
+/* -------- Body & Container (dark theme) -------- */
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #121212;
+  color: #ffffff;
+  font-family: sans-serif;
+  overflow: hidden;
+  height: 100%;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.ticTacToeContainer {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* -------- Title (top-left) -------- */
+.gameTitle {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  font-size: 1.75rem;
+  color: #ffffff;
+  /* Use a "cool font" via Google Fonts, e.g. "Lobster": */
+  font-family: 'Roboto';
+  padding-top: 10px;
+  padding-left: 10px;
+  /* 
+  To actually load the font, add this to your index.html or root CSS:
+    @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+  */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* -------- Turn Indicator (top-right) -------- */
+.turnIndicator {
+  position: absolute;
+  top: 1rem;
+  right: 5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* space between label & dot */
+}
+
+.turnLabel {
+  font-size: 0.9rem;
+  color: #ffffff;
+}
+
+/* The dot (already existed, but we'll keep it) */
+.currentTurnDot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+}
+.teamADot {
+  background-color: #2196F3;
+}
+.teamBDot {
+  background-color: #F44336;
+}
+
+/* -------- Reset Button (top-right corner) -------- */
+.resetButton {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+/* -------- Board Layout (3x3) -------- */
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 80px);
+  gap: 5px;
+  margin: 20px 0;
+}
+.cell {
+  width: 80px;
+  height: 80px;
+  background-color: #333333;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* optional highlight classes for drag & drop
+.highlightCanDrop {
+  outline: 3px solid rgba(80, 255, 80, 0.7);
+}
+.highlightNoDrop {
+  outline: 3px solid rgba(255, 80, 80, 0.7);
+} */
+
+/* -------- Inventory Rows -------- */
+.inventoryRow {
+  display: flex;
+  align-items: flex-end; /* if your cones vary in height, this bottom-aligns them */
+  gap: 8px; /* space between cones */
+  margin: 10px 0;
+}
+
+/* -------- Win Overlay -------- */
+.winOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.winnerText {
+  margin-top: 20px;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ffffff;
+  text-align: center;
+}
+
+/* -------- Bottom Container (instructions + bottom bar) -------- */
+.bottomContainer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #1a1a1a;
+  color: #ffffff;
+  z-index: 999;
+  text-align: center; /* center text */
+}
+
+.instructionsLine {
+  padding: 6px 0;
+  font-size: 0.85rem;
+  /* White line above the bottom bar can be done with a border on bottomBar or on this */
+  /* We'll do the border at the bottom bar below. */
+}
+
+.bottomBar {
+  position: fixed;          /* Stays at bottom of viewport */
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 0.8rem;        /* Slightly smaller text */
+  color: #cccccc;           /* Light gray text color */
+  background-color: #1a1a1a; /* Dark background (slightly lighter than #121212) */
+  padding: 6px 0;           /* Some vertical padding */
+  z-index: 999;             /* Ensure it’s on top of other elements */
+  /* You can add a thin top border if you want a subtle line:
+     border-top: 1px solid #333333; */
+}
+
+
+.restartButton {
+  margin-top: 20px;           /* space above button */
+  padding: 0.5rem 1.25rem;    /* top/bottom, left/right */
+  border: none;
+  border-radius: 999px;       /* big radius => pill shape */
+  background-color: #333333;  /* dark grey background */
+  color: #ffffff;             /* white text */
+  font-size: 0.75rem;
+  cursor: pointer;
+  text-transform: uppercase;  /* optional styling */
+  letter-spacing: 0.5px;      /* optional styling */
+  transition: background-color 0.2s;
+}
+
+.restartButton:hover {
+  background-color: #444444;  /* slightly lighter on hover */
+}
+
+.restartButton:active {
+  background-color: #555555;  /* or some pressed state color */
 }

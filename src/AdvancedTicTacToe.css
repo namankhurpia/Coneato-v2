@@ -1,0 +1,159 @@
+/* Full-page dark background, no extra scrolling */
+body, html {
+    margin: 0;
+    padding: 0;
+    background-color: #121212;
+    color: #ffffff;
+    font-family: sans-serif;
+    /* To attempt no scroll on mobile: */
+    overflow: hidden;
+    height: 100%;
+    box-sizing: border-box;
+  }
+  
+  .ticTacToeContainer {
+    /* Fill the screen, using flex layout. */
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  
+  /* Dot for current turn (absolute top-right) */
+  .currentTurnDot {
+    position: absolute;
+    top: 1rem;
+    right: 4rem;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+  }
+  
+  /* Blue dot for Team A, red for Team B */
+  .teamADot {
+    background-color: #2196F3;
+  }
+  .teamBDot {
+    background-color: #F44336;
+  }
+  
+  /* The reset button with an icon (absolute top-right corner) */
+  .resetButton {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    color: #ffffff;
+    cursor: pointer;
+  }
+  
+  /* Board is a 3x3 grid */
+  .board {
+    display: grid;
+    grid-template-columns: repeat(3, 80px);
+    gap: 5px;
+    margin: 20px 0;
+  }
+  
+  /* Each cell is dark grey, sized to hold the cone. */
+  .cell {
+    width: 80px;
+    height: 80px;
+    background-color: #333333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+  }
+  
+  /* The top cone displayed in the cell. */
+  .cone {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 0.9rem;
+  }
+  
+  /* Inventory row for each team. Cones are smaller. */
+  .inventoryRow {
+    display: flex;
+    gap: 10px;
+    margin: 10px 0;
+  }
+  
+  .inventoryCone {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    color: #ffffff;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: grab;
+  }
+  
+  /* Responsive adjustments for smaller screens */
+  @media (max-width: 600px) {
+    .board {
+      grid-template-columns: repeat(3, 60px);
+    }
+    .cell {
+      width: 60px;
+      height: 60px;
+    }
+    .cone {
+      width: 40px;
+      height: 40px;
+      font-size: 0.8rem;
+    }
+    .inventoryCone {
+      width: 30px;
+      height: 30px;
+      font-size: 0.7rem;
+    }
+  }
+  
+  /* Overlay that covers the entire screen when there is a winner */
+.winOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 999; /* Ensure it is on top */
+  }
+  
+  .winnerText {
+    margin-top: 20px;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: center;
+  }
+
+  
+  /* If a cell is a valid drop target and the cone is hovering, slightly glow green */
+.highlightCanDrop {
+  box-shadow: 0 0 0 3px rgba(80, 255, 80, 0.7);
+}
+
+/* If a cone is hovering but it's NOT a valid drop (too small or same team),
+   show a red border. */
+.highlightNoDrop {
+  box-shadow: 0 0 0 3px rgba(255, 80, 80, 0.7);
+}

@@ -1,0 +1,11 @@
+Advanced TicTacToe
+
+Two teams (A and B), each starts with 4 cones (sizes 1–4) in their inventory.
+A larger cone can be placed on top of a smaller cone (but not on your own cone).
+After placing the 4th cone, the team’s oldest top cone vanishes and returns to that team’s inventory.
+When a cone covers an opponent’s cone, that smaller cone reappears in the opponent’s inventory, and the cone on top will remain, bottom will belong in the inventory, ensure there is no “phantom” cone left hidden in the stack.
+Win condition: 3 in a row (horizontal, vertical, or diagonal) of that team’s top cones.
+
+
+Website layout - 
+this website needs to be mobile friendly, no scrolling in phone, the inventory for team A should be above the grid and the inventory for team B should be below the grid, 
